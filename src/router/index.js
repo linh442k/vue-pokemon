@@ -1,14 +1,19 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+// import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    redirect: "/pokemon"
+  },
+  {
+    path: "/pokemon",
+    name: "default",
+    component: () =>
+      import("../components/pokemon-form"),
   },
   {
     path: "/about",
@@ -18,6 +23,12 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+  {
+    path: "/pokemon/:id",
+    name: "Pokemon",
+    component: () =>
+      import("../components/pokemon-stat-page"),
   },
 ];
 
