@@ -10,7 +10,7 @@ const routes = [
     redirect: "/pokemon"
   },
   {
-    path: "/pokemon",
+    path: "/home",
     name: "default",
     component: () =>
       import("../components/pokemon-form"),
@@ -29,6 +29,12 @@ const routes = [
     name: "Pokemon",
     component: () =>
       import("../components/pokemon-stat-page"),
+  },
+  {
+    path: "/pokemon",
+    name: "Missing Id",
+    component: () =>
+      import("../views/Home"),
   },
 ];
 

@@ -10,6 +10,7 @@
           v-model="pokemonUrl"
           :label="'Select'"
           :rules="'required'"
+          @fetch-more-data="fetchMoreData"
         />
       </div>
       <v-btn
@@ -17,16 +18,15 @@
         :disabled="invalid"
         :to="{name: 'Pokemon', params: {id: pokemonID}}"
       >
-        Pokemon Stats
+        Check Pokemon Stats
       </v-btn>
       <!--      </form>-->
     </validation-observer>
-    <v-btn
-      class="mr-0"
-      @click="fetchMoreData">
-      Add More Items
-    </v-btn>
-    <button @click="fetchMoreData">Fetch</button>
+<!--    <v-btn-->
+<!--      class="mr-0"-->
+<!--      @click="fetchMoreData">-->
+<!--      Add More Items-->
+<!--    </v-btn>-->
   </div>
 </template>
 
@@ -79,7 +79,6 @@ export default {
           }));
         }
       );
-      console.log(this.pokemonNumber, this.pokemonOffset, this.pokemonList);
     }
   }
 };

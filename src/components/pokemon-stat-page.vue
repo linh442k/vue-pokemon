@@ -11,10 +11,15 @@
       <div v-if="pokemonInfo" class="mt-6">
         <h1>{{ pokemonInfo.name }}</h1>
         <v-img
+          lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           max-height="120"
           max-width="120"
           :src="{src: pokemonInfo.sprites.front_default}"
-        ></v-img>
+        >
+          <template #placeholder>
+              Loading...
+          </template>
+        </v-img>
         <div class="stats d-flex flex-wrap text-center">
           <div v-for="(stat, index) in pokemonInfo.stats"
                :key="`stat-${index}`"
